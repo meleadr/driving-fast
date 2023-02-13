@@ -27,7 +27,7 @@
 	<!-- LINK CSS AND JS GLOBAL -->
 	<link rel="stylesheet" href="<?=($page_title == 'Accueil') ? 'assets/css/styles.css' : '../../assets/css/styles.css';?>">
 	<script src="<?=($page_title == 'Accueil') ? 'assets/js/script.js' : '../../assets/js/script.js';?>"></script>
-	
+
 	<!-- LINK CSS AND JS FOR MVC -->
 	<link rel="stylesheet" href="<?=$mvc?>_style.css">
 	<script src="<?=$mvc?>_script.js"></script>
@@ -57,7 +57,10 @@
 					</li>
 					<?php if(isset($_COOKIE['id_user'])):?>
 					<li class="nav-item">
-						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/profil/profil.php' : '../profil/profil.php';?>"><i class="bi bi-user"></i> <?=$_SESSION['prenom']?></a>
+						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/profil/profil.php' : '../profil/profil.php';?>"><i class="bi bi-person"></i> <?=$_COOKIE['first_name']?></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'assets/includes/logout.php' : '../../assets/includes/logout.php';?>"><i class="bi bi-box-arrow-right"></i> Déconnexion</a>
 					</li>
 					<?php endif;?>
 					<?php if(!isset($_COOKIE['id_user'])):?>
