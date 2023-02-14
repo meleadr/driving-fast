@@ -17,7 +17,7 @@ $(function() {
 							'<h5 class="card-title">'+product.model+'</h5>'+
 							'<p class="card-text">'+product.description+'</p>'+
 							'<p class="card-text">'+product.price+'€</p>'+
-							'<a href="#" class="btn btn-primary">Voir le produit</a>'+
+							'<a href="../product/product.php?id='+product.id_car+'" class="btn btn-outline-dark">Voir le produit</a>'+
 						'</div>'+
 					'</div>');
 			});

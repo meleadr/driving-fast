@@ -38,7 +38,7 @@ session_start();
 </head>
 <body>
 <head>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg">
 		<div class="container">
 			<a class="navbar-brand" href="<?=($page_title == 'Accueil') ? 'index.php' : '../../index.php';?>"><img src="<?=($page_title == 'Accueil') ? 'assets/img/logo_bg.png' : '../../assets/img/logo_bg.png';?>" alt="Logo" width="100%" height="50"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@ session_start();
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/shop/shop.php' : '../shop/shop.php';?>"><i class="bi bi-info-circle"></i> Shop</a>
+						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/shop/shop.php' : '../shop/shop.php';?>"><i class="bi bi-car-front"></i> Shop</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/contact/contact.php' : '../contact/contact.php';?>"><i class="bi bi-telephone"></i> Contact</a>

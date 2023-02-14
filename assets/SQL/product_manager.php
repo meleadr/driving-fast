@@ -14,5 +14,15 @@ class product_manager {
 		$products = $req->fetchAll(PDO::FETCH_ASSOC);
 		return $products;
 	}
+
+	public function get_product($id) {
+		$sql = "SELECT * FROM cars WHERE id_car = :id";
+		$req = $this->db->prepare($sql);
+		$req->execute(array(
+			':id' => $id
+		));
+		$product = $req->fetch(PDO::FETCH_ASSOC);
+		return $product;
+	}
 	
 }

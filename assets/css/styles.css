@@ -1,7 +1,21 @@
-:root{
+/* :root{
 	--primary-color: #3b4d61;
 	--secondary-color: #EEC612;
 	--tertiary-color: #6b7b8c;
+}
+
+.navbar {
+  background-color: var(--primary-color);
+}
+
+.nav-link {
+  color: var(--secondary-color);
+}
+
+.nav-link:hover {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+  border-radius: 5px;
 }
 
 .btn-primary {
@@ -15,4 +29,21 @@
 	background-color: var(--secondary-color);
 	border-color: var(--secondary-color);
 }
+ */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
+body{
+	background-color: #ecedee;
+	min-height: 100vh;
+}
+
+footer{
+	height: 10vh;
+	background-color: #96918b;
+	display: flex;
+	align-items: center;
+}
