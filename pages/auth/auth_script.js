@@ -22,38 +22,28 @@ $(function() {
 	$('#formConnect').submit(function(e) {
 		e.preventDefault();
 		$.ajax({
-			type: "GET",
-			url: "../../assets/json/users.json",
-			dataType: "json",
+			type: "POST",
+			url: "auth_controller.php",
+			data: {
+				"action": "login",
+				"username": $('#login').val(),
+				"password": $('#password').val()
+			},
 			success: function(data) {
-				var userExists = false;
-				var passwordCorrect = false;
-				$.each(data.users, function(key, user) {
-					if (user.email == $('#login').val()) {
-						userExists = true;
-						if (user.password == $('#password').val()) {
-							passwordCorrect = true;
-							document.cookie = "id_user=" + user.id + "; path=/";
-							document.cookie = "first_name=" + user.first_name + "; path=/";
-							document.cookie = "last_name=" + user.last_name + "; path=/";
-							document.cookie = "email=" + user.email + "; path=/";
-						}
-					}
-				});
-				$('#error').empty();
-				if (userExists && passwordCorrect) {
+				console.log(data);
+				if(data == "success"){
 					$('#button_div').hide();
 					$('#login_div').hide();
 					$('#password_div').hide();
 					$('#error').append('<div class="alert alert-success" role="alert">Vous êtes connecté !</div>');
 					setTimeout(function(){ window.location.href = "/"; }, 1000);
-				}else if(userExists && !passwordCorrect){
+				}else if(data == "password"){
 					$('#error').append('<div class="alert alert-danger" role="alert">Mot de passe incorrect</div>');
 				}else{
 					$('#error').append('<div class="alert alert-danger" role="alert">Utilisateur inconnu</div>');
 				}
 			},
-			error: function(data) {	
+			error: function() {	
 				$('#error').append('<div class="alert alert-danger" role="alert">Erreur lors de la récupération du json</div>');
 			}
 		});				

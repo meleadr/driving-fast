@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -37,33 +40,30 @@
 <head>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container">
-			<a class="navbar-brand" href="<?=($page_title == 'Accueil') ? 'index.php' : '../../index.php';?>"><?php echo $site_name; ?></a>
+			<a class="navbar-brand" href="<?=($page_title == 'Accueil') ? 'index.php' : '../../index.php';?>"><img src="<?=($page_title == 'Accueil') ? 'assets/img/logo_bg.png' : '../../assets/img/logo_bg.png';?>" alt="Logo" width="100%" height="50"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="/index.php"><i class="bi bi-house"></i> Accueil</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/about/about.php' : '../about/about.php';?>"><i class="bi bi-info-circle"></i> A propos</a>
+						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/shop/shop.php' : '../shop/shop.php';?>"><i class="bi bi-info-circle"></i> Shop</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/contact/contact.php' : '../contact/contact.php';?>"><i class="bi bi-telephone"></i> Contact</a>
 					</li>
+					<?php if(isset($_SESSION['id_user'])):?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/cart/cart.php' : '../cart/cart.php';?>"><i class="bi bi-cart"></i> Panier</a>
 					</li>
-					<?php if(isset($_COOKIE['id_user'])):?>
 					<li class="nav-item">
-						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/profil/profil.php' : '../profil/profil.php';?>"><i class="bi bi-person"></i> <?=$_COOKIE['first_name']?></a>
+						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/profile/profile.php' : '../profile/profile.php';?>"><i class="bi bi-person"></i> <?=$_SESSION['first_name']?></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'assets/includes/logout.php' : '../../assets/includes/logout.php';?>"><i class="bi bi-box-arrow-right"></i> Déconnexion</a>
+						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/auth/logout.php' : '../auth/logout.php';?>"><i class="bi bi-box-arrow-right"></i> Déconnexion</a>
 					</li>
 					<?php endif;?>
-					<?php if(!isset($_COOKIE['id_user'])):?>
+					<?php if(!isset($_SESSION['id_user'])):?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?=($page_title == 'Accueil') ? 'pages/auth/auth.php' : '../auth/auth.php';?>"><i class="bi bi-box-arrow-in-right"></i> Connexion</a>
 					</li>
