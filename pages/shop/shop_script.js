@@ -1,29 +1,44 @@
-$(function() {
+$(function () {
 	$.ajax({
 		type: "POST",
 		url: "shop_controller.php",
 		data: {
-			"action": "getProducts"
+			action: "getProducts",
 		},
-		success: function(data) {
+		success: function (data) {
 			var products = JSON.parse(data);
 			// foreach product
-			$.each(products, function(index, product) {
-				product.price = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+			$.each(products, function (index, product) {
+				product.price = product.price
+					.toString()
+					.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 				$("#products").append(
-					'<div class="card" style="width: 18rem;">'+
-						'<img src="'+product.path_image+'" class="card-img-top" alt="'+product.model+'">'+
-						'<div class="card-body">'+
-							'<h5 class="card-title">'+product.model+'</h5>'+
-							'<p class="card-text">'+product.description+'</p>'+
-							'<p class="card-text">'+product.price+'€</p>'+
-							'<a href="../product/product.php?id='+product.id_car+'" class="btn btn-outline-dark">Voir le produit</a>'+
-						'</div>'+
-					'</div>');
+					'<div class="card" style="width: 18rem;">' +
+						'<img src="' +
+						product.path_image +
+						'" class="card-img-top" alt="' +
+						product.model +
+						'">' +
+						'<div class="card-body">' +
+						'<h5 class="card-title">' +
+						product.model +
+						"</h5>" +
+						'<p class="card-text">' +
+						product.description +
+						"</p>" +
+						'<p class="card-text">' +
+						product.price +
+						"€</p>" +
+						'<a href="../product/product.php?id=' +
+						product.id_car +
+						'" class="btn btn-outline-dark">Voir le produit</a>' +
+						"</div>" +
+						"</div>"
+				);
 			});
 		},
-		error: function() {
+		error: function () {
 			console.log("error");
-		}
+		},
 	});
 });

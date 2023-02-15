@@ -1,7 +1,9 @@
 # Projet de cours : driving-fast
+
 Projet e-commerce de vente de véhicule
 
 ## Connexion
+
 Pour le formulaire de connexion, suivez les étapes suivantes :
 
 1. Créer un formulaire de connexion avec les champs nom d'utilisateur et mot de passe.
@@ -11,6 +13,7 @@ Pour le formulaire de connexion, suivez les étapes suivantes :
 5. Si aucun utilisateur ne correspond, afficher un message d'erreur correspondant en popup (popup qui disparaît en cliquant dessus).
 
 ## Afficher une liste d'articles
+
 Pour afficher une liste d'articles, suivez les étapes suivantes :
 
 1. Afficher une liste d'articles avec une photo, un titre, une catégorie et un prix pour chaque article.
@@ -20,6 +23,7 @@ Pour afficher une liste d'articles, suivez les étapes suivantes :
 5. Toutes ces recherches sont complémentaires et les filtres sont dynamiques (click sur une catégorie, terme à rechercher dans le titre, etc.).
 
 ## Remplir le panier
+
 Pour remplir le panier, suivez les étapes suivantes :
 
 1. Chaque article est lié à deux boutons "+" ou "-" permettant d'incrémenter ou diminuer le nombre d'articles présents dans le panier.
@@ -29,6 +33,7 @@ Pour remplir le panier, suivez les étapes suivantes :
 5. Si le back-end renvoie un succès, vider le panier. Sinon, afficher le message d'erreur.
 
 # Côté technique
+
 Le projet doit respecter les critères suivants :
 
 1. Compréhension des demandes.
@@ -36,4 +41,3 @@ Le projet doit respecter les critères suivants :
 3. Bonne utilisation des techniques vues au cours.
 4. Indentation et clarté du code.
 5. Graphisme et ergonomie.
-

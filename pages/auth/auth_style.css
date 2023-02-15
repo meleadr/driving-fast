@@ -1,5 +1,5 @@
 /* SECTION */
-section{
+section {
 	height: 80vh;
 	display: flex;
 	flex-direction: column;
@@ -8,7 +8,7 @@ section{
 }
 
 /* FORMULAIRE DE CONNEXION */
-#formConnect{
+#formConnect {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -17,6 +17,6 @@ section{
 	align-items: center;
 }
 
-#connectBtn{
+#connectBtn {
 	display: none;
 }
