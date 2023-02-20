@@ -1,7 +1,8 @@
 <?php 
 $page_title = 'Contact'; 
 $mvc = 'contact';
-require_once('../../assets/includes/header.php');
+include_once('../../assets/includes/head.php');
+include_once('../../assets/includes/header.php');
 ?>
 <div class="mt-5 conatiner">
 	<div class="text-center">
@@ -36,5 +37,5 @@ require_once('../../assets/includes/header.php');
 	</div>
 </div>
 <?php
-require_once('../../assets/includes/footer.php'); 
+include_once('../../assets/includes/footer.php'); 
 ?>

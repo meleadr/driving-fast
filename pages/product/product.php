@@ -1,6 +1,7 @@
 <?php $page_title = 'Produit';
 $mvc = 'product';
-require_once('../../assets/includes/header.php');
+include_once('../../assets/includes/head.php');
+include_once('../../assets/includes/header.php');
 ?>
 <section>
 	<div class="container mt-5 mb-5">
@@ -26,7 +27,7 @@ require_once('../../assets/includes/header.php');
 							<span class="heart"><i class='bi bi-heart'></i></span>	
 						</div>
 						<div class="mt-2 pr-3 content">
-							<p id="decription"></p>
+							<p id="description"></p>
 						</div>
 						<h3 id="price"></h3>
 						<!-- <div class="ratings d-flex flex-row align-items-center">
@@ -58,5 +59,5 @@ require_once('../../assets/includes/header.php');
 	</div>
 </section>
 <?php
-require_once('../../assets/includes/footer.php'); 
+include_once('../../assets/includes/footer.php'); 
 ?>

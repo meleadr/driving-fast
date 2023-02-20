@@ -8,7 +8,7 @@ class user_manager {
 	}
 
 	public function user_exists($username) {
-		$sql = "SELECT * FROM users WHERE username = :username";
+		$sql = "SELECT * FROM users WHERE login = :username";
 		$req = $this->db->prepare($sql);
 		$req->execute(array(
 			'username' => $username
@@ -32,7 +32,7 @@ class user_manager {
 	}
 
 	public function get_user($username, $password) {
-		$sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+		$sql = "SELECT * FROM users WHERE login = :username AND password = :password";
 		$req = $this->db->prepare($sql);
 		$req->execute(array(
 			'username' => $username,

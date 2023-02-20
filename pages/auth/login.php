@@ -16,7 +16,7 @@ if(isset($_POST)):
 	$user = $user_manager->get_user($username, $password);
 	if($user):
 		$_SESSION['id_user'] = $user['id_user'];
-		$_SESSION['username'] = $user['username'];
+		$_SESSION['login'] = $user['login'];
 		$_SESSION['password'] = $user['password'];
 		$_SESSION['first_name'] = $user['first_name'];
 		$_SESSION['last_name'] = $user['last_name'];

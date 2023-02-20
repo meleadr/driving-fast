@@ -1,47 +1,31 @@
-<?php 
-$page_title = 'Accueil';
-require_once('assets/includes/header.php');
-?>
-<section class="col-sm-12">
-	<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-		</div>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="assets/img/1.jpg" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Renault Sport R.S.0.1</h5>
-					<p>La SuperCar made in France</p>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<img src="assets/img/2.jpg" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Corvette C7</h5>
-					<p>L'américaine qui fait réver</p>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<img src="assets/img/3.jpg" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Pagani Zonda Fantasma Evo</h5>
-					<p>Avec ses 760cv cette italienne donne envie</p>
-				</div>
-			</div>
-		</div>
-		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-		</button>
-	</div>
-</section>
 <?php
-require_once('assets/includes/footer.php'); 
-?>
+$page_title = 'Authentification';
+$mvc = 'auth';
+include_once('assets/includes/head.php'); ?>
+<section id="logSection" class="col-sm-12">
+	<form class="row g-3 was-validated" id="formConnect" novalidate>
+		<div class="col-md-4" id="login_div">
+			<label for="validationServerUsername" class="form-label">Login</label>
+			<div class="input-group has-validation">
+			<span class="input-group-text" id="inputGroupPrepend3">@</span>
+			<input type="email" class="form-control is-invalid" id="login" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+			<div id="validationServerUsernameFeedback" class="invalid-feedback">
+				Entrer votre login.
+			</div>
+			</div>
+		</div>
+		<div class="col-md-4" id="password_div">
+			<label for="validationServer03" class="form-label">Mot de passe</label>
+			<input type="password" class="form-control is-invalid" id="password" aria-describedby="validationServer03Feedback" required>
+			<div id="validationServer03Feedback" class="invalid-feedback">
+				Entrer votre mot de passe.
+			</div>
+		</div>
+		<div class="col-12 text-center" id="button_div">
+			<button class="btn btn-primary" type="submit" id="connectBtn">Se connecter</button>
+		</div>
+		<div class="col-12 text-center" id="error">
+		</div>
+	</form>
+</section>
+<?php include_once('./assets/includes/footer.php'); ?>

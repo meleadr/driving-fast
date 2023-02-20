@@ -12,6 +12,8 @@ $(function () {
 				product.price = product.price
 					.toString()
 					.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+				product.description = product.description.substring(0, 100) + "...";
+
 				$("#products").append(
 					'<div class="card" style="width: 18rem;">' +
 						'<img src="' +
