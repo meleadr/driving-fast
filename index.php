@@ -13,22 +13,22 @@ require_once('assets/includes/header.php');
 			<div class="carousel-item active">
 				<img src="assets/img/1.jpg" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
-					<h5>First slide label</h5>
-					<p>Some representative placeholder content for the first slide.</p>
+					<h5>Renault Sport R.S.0.1</h5>
+					<p>La SuperCar made in France</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="assets/img/2.jpg" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Second slide label</h5>
-					<p>Some representative placeholder content for the second slide.</p>
+					<h5>Corvette C7</h5>
+					<p>L'américaine qui fait réver</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="assets/img/3.jpg" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
-					<h5>Third slide label</h5>
-					<p>Some representative placeholder content for the third slide.</p>
+					<h5>Pagani Zonda Fantasma Evo</h5>
+					<p>Avec ses 760cv cette italienne donne envie</p>
 				</div>
 			</div>
 		</div>
