@@ -1,5 +1,4 @@
 $(function () {
-	// get all items in cart from cookies corresponding to the user
 	var cookies = document.cookie.split(";");
 	var cart = [];
 	$.each(cookies, function (index, cookie) {
