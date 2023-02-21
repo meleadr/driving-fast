@@ -1,4 +1,5 @@
 $(function () {
+	$("#cart_quantity").text(sessionStorage.getItem("cart_quantity"));
 	$("#formConnect input").keyup(function () {
 		$("#error").empty();
 		var empty = false;
@@ -27,18 +28,19 @@ $(function () {
 				password: $("#password").val(),
 			},
 			success: function (data) {
-				console.log(data);
-				if (data == "success") {
+				data = data.split("-");
+				if (data[0] == "success") {
 					$("#button_div").hide();
 					$("#login_div").hide();
 					$("#password_div").hide();
 					$("#error").append(
 						'<div class="alert alert-success" role="alert">Vous êtes connecté !</div>'
 					);
+					sessionStorage.setItem("id_user", data[1]);
 					setTimeout(function () {
 						window.location.href = "pages/landing/landing.php";
 					}, 1000);
-				} else if (data == "password") {
+				} else if (data[0] == "password") {
 					$("#error").append(
 						'<div class="alert alert-danger" role="alert">Mot de passe incorrect</div>'
 					);

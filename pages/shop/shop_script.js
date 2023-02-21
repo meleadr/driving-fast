@@ -33,7 +33,7 @@ $(function () {
 						"€</p>" +
 						'<a href="../product/product.php?id=' +
 						product.id_car +
-						'" class="btn btn-outline-dark">Voir le produit</a>' +
+						'" class="btn btn-primary">Voir le produit</a>' +
 						"</div>" +
 						"</div>"
 				);

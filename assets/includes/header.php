@@ -15,7 +15,7 @@
 					</li>
 					<?php if(isset($_SESSION['id_user'])):?>
 					<li class="nav-item">
-						<a class="nav-link" href="../cart/cart.php"><i class="bi bi-cart"></i> Panier</a>
+						<a class="nav-link" href="../cart/cart.php"><i class="bi bi-cart"></i> Panier <span id="cart_quantity"></span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="../profile/profile.php"><i class="bi bi-person"></i> <?=$_SESSION['first_name']?></a>

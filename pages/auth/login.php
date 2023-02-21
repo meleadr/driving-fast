@@ -20,9 +20,9 @@ if(isset($_POST)):
 		$_SESSION['password'] = $user['password'];
 		$_SESSION['first_name'] = $user['first_name'];
 		$_SESSION['last_name'] = $user['last_name'];
-		echo 'success';
+		echo 'success-'.$user['id_user'];
 	else:
-		echo 'password';
+		echo 'password-incorrect';
 		session_destroy();
 	endif;
 	die();

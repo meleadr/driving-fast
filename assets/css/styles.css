@@ -9,11 +9,19 @@ body {
 	min-height: 100vh;
 }
 
+header {
+	height: 10vh;
+	background-color: #96918b;
+	display: flex;
+	align-items: center;
+}
+
 footer {
 	height: 10vh;
 	background-color: #96918b;
 	display: flex;
 	align-items: center;
+	color: white;
 }
 
 /* SECTION */

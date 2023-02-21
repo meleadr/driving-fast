@@ -20,7 +20,7 @@ include_once('../../assets/includes/header.php');
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="a../../ssets/img/2.jpg" class="d-block w-100" alt="...">
+				<img src="../../assets/img/2.jpg" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h5>Corvette C7</h5>
 					<p>L'américaine qui fait réver</p>

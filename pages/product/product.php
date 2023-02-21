@@ -30,10 +30,6 @@ include_once('../../assets/includes/header.php');
 							<p id="description"></p>
 						</div>
 						<h3 id="price"></h3>
-						<!-- <div class="ratings d-flex flex-row align-items-center">
-							<div class="d-flex flex-row">	<i class='bx bxs-star' ></i>	<i class='bx bxs-star' ></i>	<i class='bx bxs-star' ></i>	<i class='bx bxs-star' ></i>	<i class='bx bx-star' ></i>	</div>
-							<span>441 reviews</span>	
-						</div> -->
 						<div class="mt-5">
 							<span class="fw-bold">Color</span>	
 							<div class="colors">
@@ -46,12 +42,17 @@ include_once('../../assets/includes/header.php');
 								</ul>
 							</div>
 						</div>
-						<div class="buttons d-flex flex-row mt-5 gap-3">	<button class="btn btn-outline-dark">Ajouter au panier</button></div>
-						<!-- <div class="search-option">
-							<i class='bx bx-search-alt-2 first-search'></i>	
-							<div class="inputs">	<input type="text" name="">	</div>
-							<i class='bx bx-share-alt share'></i>	
-						</div> -->
+						<div class="mt-5">
+							<span class="fw-bold">Quantité</span>	
+							<div class="d-flex flex-row align-items-center mt-4">
+								<div class="d-flex flex-row align-items-center">
+									<button class="btn btn-primary" id="minus">-</button>
+									<input type="text" class="form-control" id="quantity" value="1" readonly>
+									<button class="btn btn-primary" id="plus">+</button>
+								</div>
+							</div>
+						</div>
+						<div class="buttons d-flex flex-row mt-5 gap-3">	<button class="btn btn-primary" id="add_to_cart">Ajouter au panier</button></div>
 					</div>
 				</div>
 			</div>
