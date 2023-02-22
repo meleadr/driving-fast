@@ -19,7 +19,7 @@ include_once('../../assets/includes/header.php');
 										class="d-flex justify-content-between align-items-center mb-5"
 									>
 										<h1 class="fw-bold mb-0 text-black">Panier</h1>
-										<h6 id="nbItems" class="mb-0 text-muted">3 articles</h6>
+										<h6 id="nbItems" class="mb-0 text-muted"></h6>
 									</div>
 									<hr id="fromHere" class="my-4" />
 									
@@ -37,19 +37,19 @@ include_once('../../assets/includes/header.php');
 
 									<div class="d-flex justify-content-between mb-4">
 										<h5 class="text-uppercase">Total articles</h5>
-										<h5>132.00 €</h5>
+										<h5 id="totalPriceItems"></h5>
 									</div>
 
 									<div class="d-flex justify-content-between mb-4">
 										<h5 class="text-uppercase">Livraison</h5>
-										<h5>5.00 €</h5>
+										<h5>500 €</h5>
 									</div>
 
 									<hr class="my-4" />
 
 									<div class="d-flex justify-content-between mb-5">
 										<h5 class="text-uppercase">Prix total</h5>
-										<h5>137.00 €</h5>
+										<h5 id="totalPrice"></h5>
 									</div>
 
 									<button

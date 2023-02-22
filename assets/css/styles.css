@@ -21,26 +21,3 @@ footer {
 	background-color: #96918b;
 	color: white;
 }
-
-/* SECTION */
-#logSection {
-	height: 90vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-/* FORMULAIRE DE CONNEXION */
-#formConnect {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-#connectBtn {
-	display: none;
-}

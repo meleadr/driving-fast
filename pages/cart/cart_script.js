@@ -1,13 +1,6 @@
 $(function () {
-	var cookies = document.cookie.split(";");
-	var cart = [];
-	$.each(cookies, function (index, cookie) {
-		var cookie_name = cookie.split("=")[0].trim();
-		if (cookie_name == "cart_" + sessionStorage.getItem("id_user")) {
-			cart = JSON.parse(cookie.split("=")[1]);
-		}
-	});
-
+	var id_user = sessionStorage.getItem("id_user");
+	var cart = getCartOfUser(id_user);
 	$.each(cart, function (index, product) {
 		$.ajax({
 			type: "POST",
@@ -19,9 +12,7 @@ $(function () {
 			success: function (data) {
 				data = JSON.parse(data);
 				data.price = data.price * product.quantity;
-				data.price = data.price
-					.toString()
-					.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+				data.price = formatPrice(data.price);
 				$("#fromHere").after(
 					`
 				<div
@@ -50,11 +41,15 @@ $(function () {
 					<button class="btn btn-link px-2">
 						<i class="bi bi-dash"></i>
 					</button>
-
+					<input name="id_product" type="hidden" value="` +
+						product.id +
+						`"/>
 					<input
 						min="0"
 						name="quantity"
-						value="1"
+						value="` +
+						getCartQuantityProduct(id_user, product.id) +
+						`"
 						type="text"
 						class="form-control form-control-sm"
 						readonly
@@ -67,7 +62,7 @@ $(function () {
 				<div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
 					<h6 class="mb-0">` +
 						data.price +
-						`€</h6>
+						`</h6>
 				</div>
 				<div class="col-md-1 col-lg-1 col-xl-1 text-end">
 					<button class="btn btn-link px-2"><i class="bi bi-trash"></i></button>
@@ -83,27 +78,48 @@ $(function () {
 		});
 	});
 
-	// on plus button click
+	$("#totalPriceItems").text(formatPrice(getTotalPriceOfCart(id_user)));
+	$("#totalPrice").text(formatPrice(getTotalPriceOfCart(id_user) + 500));
+	nbrTotal = getTotalItemsInCart(id_user);
+	$("#nbItems").text(nbrTotal + " articles");
+
 	$(document).on("click", ".bi-plus", function () {
 		var quantity = $(this).parent().siblings("input[name=quantity]");
 		quantity.val(parseInt(quantity.val()) + 1);
+		nbrTotal += 1;
+		setNbrAticle();
+		setCartQuantityProduct(
+			id_user,
+			quantity.val(),
+			quantity.parent().parent().parent().find("input[name=id_product]").val()
+		);
 	});
 
-	// on minus button click
 	$(document).on("click", ".bi-dash", function () {
 		var quantity = $(this).parent().siblings("input[name=quantity]");
 		if (parseInt(quantity.val()) > 0) {
 			quantity.val(parseInt(quantity.val()) - 1);
+			nbrTotal -= 1;
+			setNbrAticle();
 		}
 		if (parseInt(quantity.val()) == 0) {
 			var item = $(this).parent().parent().parent();
 			item.remove();
+			var id_product = item.find("input[name=id_product]").val();
+			removeItemOfCart(id_user, id_product);
+			setCartQuantity(id_user);
 		}
 	});
 
-	// on trash button click
 	$(document).on("click", ".bi-trash", function () {
 		var item = $(this).parent().parent().parent();
 		item.remove();
+		var id_product = item.find("input[name=id_product]").val();
+		removeItemOfCart(id_user, id_product);
+		setCartQuantity(id_user);
 	});
+
+	function setNbrAticle() {
+		$("#nbItems").text(nbrTotal + " articles");
+	}
 });

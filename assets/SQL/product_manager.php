@@ -24,5 +24,16 @@ class product_manager {
 		$product = $req->fetch(PDO::FETCH_ASSOC);
 		return $product;
 	}
+
+	public function get_price($id)
+	{
+		$sql = "SELECT price FROM cars WHERE id_car = :id";
+		$req = $this->db->prepare($sql);
+		$req->execute(array(
+			':id' => $id
+		));
+		$price = $req->fetch(PDO::FETCH_ASSOC);
+		return $price;
+	}
 	
 }

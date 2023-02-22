@@ -1,60 +1,137 @@
 $(function () {
-	$("#cart_quantity").text(sessionStorage.getItem("cart_quantity"));
-	$("#formConnect input").keyup(function () {
-		$("#error").empty();
-		var empty = false;
-		$("#formConnect input").each(function () {
-			if ($(this).val() == "") {
-				empty = true;
-			} else {
-				$(this).removeClass("is-invalid");
-			}
-		});
-		if (empty) {
-			$("#connectBtn").hide();
-		} else {
-			$("#connectBtn").show();
+	var id_user = sessionStorage.getItem("id_user");
+	setCartQuantity(id_user);
+});
+
+function getCartOfUser(id_user) {
+	var cookies = document.cookie.split(";");
+	var cart = [];
+	$.each(cookies, function (index, cookie) {
+		var cookie_name = cookie.split("=")[0].trim();
+		if (cookie_name == "cart_" + id_user) {
+			cart = JSON.parse(cookie.split("=")[1]);
+		}
+	});
+	return cart;
+}
+
+function getTotalItemsInCart(id_user) {
+	var cart = this.getCartOfUser(id_user);
+	var total = 0;
+	$.each(cart, function (index, product) {
+		total += parseInt(product.quantity);
+	});
+	return total;
+}
+
+function getTotalPriceOfCart(id_user) {
+	var cart = this.getCartOfUser(id_user);
+	var total = 0;
+	$.each(cart, function (index, product) {
+		total += parseInt(product.quantity) * getPriceOfProduct(product.id);
+	});
+	return total;
+}
+
+function removeItemOfCart(id_user, id_product) {
+	var cart = this.getCartOfUser(id_user);
+	$.each(cart, function (index, product) {
+		if (product.id == id_product) {
+			cart.splice(index, 1);
+		}
+	});
+	document.cookie = "cart_" + id_user + "=" + JSON.stringify(cart) + ";path=/";
+}
+
+function setCartQuantity(id_user) {
+	var nbrTotal = this.getTotalItemsInCart(id_user);
+	sessionStorage.setItem("cart_quantity", nbrTotal);
+	$("#cart_quantity").text(nbrTotal);
+}
+
+function getCartQuantityProduct(id_user, id_product) {
+	var cart = this.getCartOfUser(id_user);
+	var quantity = 0;
+	$.each(cart, function (index, product) {
+		if (product.id == id_product) {
+			quantity = product.quantity;
+		}
+	});
+	return quantity;
+}
+
+function setCartQuantityProduct(id_user, id_product, quantity) {
+	var product_already_in_cart = false;
+	var product_quantity = 0;
+	var cart = getCartOfUser(id_user);
+
+	$.each(cart, function (index, product) {
+		if (product.id == id_product) {
+			product_already_in_cart = true;
+			product_quantity = product.quantity;
 		}
 	});
 
-	$("#formConnect").submit(function (e) {
-		e.preventDefault();
-		$.ajax({
-			type: "POST",
-			url: "pages/auth/login.php",
-			data: {
-				action: "login",
-				username: $("#login").val(),
-				password: $("#password").val(),
-			},
-			success: function (data) {
-				data = data.split("-");
-				if (data[0] == "success") {
-					$("#button_div").hide();
-					$("#login_div").hide();
-					$("#password_div").hide();
-					$("#error").append(
-						'<div class="alert alert-success" role="alert">Vous êtes connecté !</div>'
-					);
-					sessionStorage.setItem("id_user", data[1]);
-					setTimeout(function () {
-						window.location.href = "pages/landing/landing.php";
-					}, 1000);
-				} else if (data[0] == "password") {
-					$("#error").append(
-						'<div class="alert alert-danger" role="alert">Mot de passe incorrect</div>'
-					);
-				} else {
-					$("#error").append(
-						'<div class="alert alert-danger" role="alert">Utilisateur inconnu</div>'
-					);
-				}
-			},
-			error: function () {
-				$("#error").append(
-					'<div class="alert alert-danger" role="alert">Erreur lors de la tentative de connexion</div>'
-				);
-			},
+	if (product_already_in_cart) {
+		var cart = getCartOfUser(id_user);
+		$.each(cart, function (index, product) {
+			if (product.id == id_product) {
+				product.quantity = parseInt(product_quantity) + quantity;
+			}
 		});
+		document.cookie =
+			"cart_" + id_user + "=" + JSON.stringify(cart) + "; path=/";
+	} else {
+		var product = {
+			id: id_product,
+			quantity: quantity,
+		};
+		var cart = [];
+		cart.push(product);
+
+		var actual_cart = getCartOfUser(id_user);
+		$.each(actual_cart, function (index, product) {
+			cart.push(product);
+		});
+
+		document.cookie =
+			"cart_" + id_user + "=" + JSON.stringify(cart) + "; path=/";
+	}
+}
+
+function getPriceOfProduct(id_product) {
+	var price = 0;
+	$.ajax({
+		type: "POST",
+		url: "../../pages/product/product_controller.php",
+		data: {
+			action: "getPrice",
+			id: id_product,
+		},
+		async: false,
+		success: function (data) {
+			price = data;
+		},
+		error: function () {
+			console.log("Erreur lors du chargement du prix");
+		},
 	});
-});
+	return +price;
+}
+
+function formatPrice(price) {
+	// 123456789 => 123 456 789 €
+	var price = price.toString();
+	var price_formated = "";
+	var count = 0;
+	for (var i = price.length - 1; i >= 0; i--) {
+		if (count == 3) {
+			price_formated = " " + price_formated;
+			count = 0;
+		}
+		price_formated = price[i] + price_formated;
+		count++;
+	}
+	price_formated += " €";
+	return price_formated;
+}

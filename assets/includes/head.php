@@ -32,8 +32,8 @@ session_start();
 	<script src="<?=($mvc == 'auth') ? 'assets/js/script.js' : '../../assets/js/script.js';?>"></script>
 
 	<!-- LINK CSS AND JS FOR MVC -->
-	<link rel="stylesheet" href="<?=$mvc?>_style.css">
-	<script src="<?=$mvc?>_script.js"></script>
+	<link rel="stylesheet" href="<?=($mvc == 'auth') ? 'pages/auth/auth_style.css' : $mvc.'_style.css';?>">
+	<script src="<?=($mvc == 'auth') ? 'pages/auth/auth_script.js' : $mvc.'_script.js';?>"></script>
 	<title><?=$site_name?> - <?=$page_title?></title>
 </head>
 <body>

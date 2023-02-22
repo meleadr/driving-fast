@@ -9,9 +9,7 @@ $(function () {
 			var products = JSON.parse(data);
 			// foreach product
 			$.each(products, function (index, product) {
-				product.price = product.price
-					.toString()
-					.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+				product.price = formatPrice(product.price);
 				product.description = product.description.substring(0, 100) + "...";
 
 				$("#products").append(
@@ -30,7 +28,7 @@ $(function () {
 						"</p>" +
 						'<p class="card-text">' +
 						product.price +
-						"€</p>" +
+						"</p>" +
 						'<a href="../product/product.php?id=' +
 						product.id_car +
 						'" class="btn btn-primary">Voir le produit</a>' +
