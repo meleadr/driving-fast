@@ -9,11 +9,10 @@ section {
 }
 
 .card {
-	width: 18rem;
+	width: 22rem;
 	margin: 1rem;
 }
 
-/* css for search bar */
 .search,
 .tri,
 .categories {

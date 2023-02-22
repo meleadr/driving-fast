@@ -8,7 +8,8 @@ class product_manager {
 	}
 
 	public function get_products() {
-		$sql = "SELECT * FROM cars";
+		$sql = "SELECT * FROM cars
+		JOIN categories ON cars.category = categories.id_category";
 		$req = $this->db->prepare($sql);
 		$req->execute();
 		$products = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -34,6 +35,14 @@ class product_manager {
 		));
 		$price = $req->fetch(PDO::FETCH_ASSOC);
 		return $price;
+	}
+
+	public function get_categories() {
+		$sql = "SELECT * FROM categories";
+		$req = $this->db->prepare($sql);
+		$req->execute();
+		$categories = $req->fetchAll(PDO::FETCH_ASSOC);
+		return $categories;
 	}
 	
 }

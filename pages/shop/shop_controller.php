@@ -8,6 +8,10 @@ if(isset($_POST)):
 		$product = $product_manager->get_products();
 		echo json_encode($product);
 		die();
+	elseif(isset($_POST['action']) && $_POST['action'] == 'getCategories'):
+		$categories = $product_manager->get_categories();
+		echo json_encode($categories);
+		die();
 	endif;
 endif;
 		
