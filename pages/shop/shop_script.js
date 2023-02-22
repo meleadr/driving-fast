@@ -21,6 +21,8 @@ $(function () {
 						'">' +
 						'<div class="card-body">' +
 						'<h5 class="card-title">' +
+						product.brand +
+						" " +
 						product.model +
 						"</h5>" +
 						'<p class="card-text">' +

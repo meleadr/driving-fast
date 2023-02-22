@@ -14,7 +14,7 @@ $(function () {
 			product.price = product.price
 				.toString()
 				.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-			$("#name").append(product.model);
+			$("#name").append(product.brand + " " + product.model);
 			$("#price").append(product.price + "€");
 			$("#description").append(product.description);
 			$("#main_product_image").attr("src", product.path_image);
