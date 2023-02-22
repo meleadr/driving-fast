@@ -13,7 +13,7 @@ $(function () {
 				product.description = product.description.substring(0, 100) + "...";
 
 				$("#products").append(
-					'<div class="card" style="width: 18rem;">' +
+					'<div class="card">' +
 						'<img src="' +
 						product.path_image +
 						'" class="card-img-top" alt="' +
