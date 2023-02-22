@@ -6,7 +6,6 @@ $user_manager = new user_manager();
 if(isset($_POST)):
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	// check if user exists
 	if(!$user_manager->user_exists($username)):
 		echo 'user does not exist';
 		session_destroy();

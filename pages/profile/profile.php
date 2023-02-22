@@ -6,7 +6,7 @@ include_once('../../assets/includes/header.php');
 <div id="profile" class="container">
 	<div class="card">
 		<div class="info">
-			<span>Votre profil</span> <button id="savebutton">Modifier</button>
+			<span>Votre profil</span> <a id="update" class="btn btn-primary">Modifier</a>
 		</div>
 		<div class="forms">
 			<div class="inputs">

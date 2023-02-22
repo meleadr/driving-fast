@@ -13,7 +13,6 @@
 					<li class="nav-item">
 						<a class="nav-link" href="../contact/contact.php"><i class="bi bi-telephone"></i> Contact</a>
 					</li>
-					<?php if(isset($_SESSION['id_user'])):?>
 					<li class="nav-item">
 						<a class="nav-link" href="../cart/cart.php"><i class="bi bi-cart"></i> Panier <span id="cart_quantity"></span></a>
 					</li>
@@ -23,7 +22,6 @@
 					<li class="nav-item">
 						<a class="nav-link" href="../auth/logout.php"><i class="bi bi-box-arrow-right"></i> Déconnexion</a>
 					</li>
-					<?php endif;?>
 				</ul>
 			</div>
 		</div>
