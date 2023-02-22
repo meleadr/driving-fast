@@ -4,13 +4,13 @@ $mvc = 'contact';
 include_once('../../assets/includes/head.php');
 include_once('../../assets/includes/header.php');
 ?>
-<div class="mt-5 conatiner">
+<div id="contact" class="mt-5 conatiner">
 	<div class="text-center">
 		<h3 class="text-primary">Comment pouvons-nous vous aider ?</h3>
 		<p class="lead">Contactez-nous via ce formulaire</p>
 	</div>
-	<div class=" d-flex align-items-center justify-content-center">
-		<div class="bg-white col-md-4">
+	<div class="d-flex align-items-center justify-content-center">
+		<div id="form" class="bg-white col-md-4">
 			<div class="p-4 rounded shadow-md">
 				<div>
 					<label for="name" class="form-label">Votre nom</label>

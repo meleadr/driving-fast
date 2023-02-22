@@ -25,7 +25,7 @@ class user_manager {
 		$sql = "SELECT * FROM users WHERE id_user = :id_user";
 		$req = $this->db->prepare($sql);
 		$req->execute(array(
-			'id' => $id_user
+			'id_user' => $id_user
 		));
 		$user = $req->fetch(PDO::FETCH_ASSOC);
 		return $user;
@@ -41,5 +41,4 @@ class user_manager {
 		$user = $req->fetch(PDO::FETCH_ASSOC);
 		return $user;
 	}
-	
 }

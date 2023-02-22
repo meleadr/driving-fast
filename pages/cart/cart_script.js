@@ -1,6 +1,7 @@
 $(function () {
 	var id_user = sessionStorage.getItem("id_user");
 	var cart = getCartOfUser(id_user);
+	var nbrTotal = getTotalItemsInCart(id_user);
 	$.each(cart, function (index, product) {
 		$.ajax({
 			type: "POST",
@@ -80,19 +81,18 @@ $(function () {
 
 	$("#totalPriceItems").text(formatPrice(getTotalPriceOfCart(id_user)));
 	$("#totalPrice").text(formatPrice(getTotalPriceOfCart(id_user) + 500));
-	nbrTotal = getTotalItemsInCart(id_user);
 	$("#nbItems").text(nbrTotal + " articles");
 
 	$(document).on("click", ".bi-plus", function () {
 		var quantity = $(this).parent().siblings("input[name=quantity]");
 		quantity.val(parseInt(quantity.val()) + 1);
 		nbrTotal += 1;
-		setNbrAticle();
 		setCartQuantityProduct(
 			id_user,
-			quantity.val(),
-			quantity.parent().parent().parent().find("input[name=id_product]").val()
+			quantity.parent().parent().parent().find("input[name=id_product]").val(),
+			quantity.val()
 		);
+		setNbrAticle();
 	});
 
 	$(document).on("click", ".bi-dash", function () {
@@ -100,15 +100,24 @@ $(function () {
 		if (parseInt(quantity.val()) > 0) {
 			quantity.val(parseInt(quantity.val()) - 1);
 			nbrTotal -= 1;
-			setNbrAticle();
+			setCartQuantityProduct(
+				id_user,
+				quantity
+					.parent()
+					.parent()
+					.parent()
+					.find("input[name=id_product]")
+					.val(),
+				quantity.val()
+			);
 		}
 		if (parseInt(quantity.val()) == 0) {
 			var item = $(this).parent().parent().parent();
 			item.remove();
 			var id_product = item.find("input[name=id_product]").val();
 			removeItemOfCart(id_user, id_product);
-			setCartQuantity(id_user);
 		}
+		setNbrAticle();
 	});
 
 	$(document).on("click", ".bi-trash", function () {
@@ -116,7 +125,7 @@ $(function () {
 		item.remove();
 		var id_product = item.find("input[name=id_product]").val();
 		removeItemOfCart(id_user, id_product);
-		setCartQuantity(id_user);
+		setNbrAticle();
 	});
 
 	function setNbrAticle() {

@@ -41,6 +41,7 @@ function removeItemOfCart(id_user, id_product) {
 		}
 	});
 	document.cookie = "cart_" + id_user + "=" + JSON.stringify(cart) + ";path=/";
+	setCartQuantity(id_user);
 }
 
 function setCartQuantity(id_user) {
@@ -76,7 +77,7 @@ function setCartQuantityProduct(id_user, id_product, quantity) {
 		var cart = getCartOfUser(id_user);
 		$.each(cart, function (index, product) {
 			if (product.id == id_product) {
-				product.quantity = parseInt(product_quantity) + quantity;
+				product.quantity = parseInt(product_quantity) + parseInt(quantity);
 			}
 		});
 		document.cookie =
@@ -97,6 +98,7 @@ function setCartQuantityProduct(id_user, id_product, quantity) {
 		document.cookie =
 			"cart_" + id_user + "=" + JSON.stringify(cart) + "; path=/";
 	}
+	setCartQuantity(id_user);
 }
 
 function getPriceOfProduct(id_product) {
