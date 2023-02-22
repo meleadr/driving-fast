@@ -14,13 +14,16 @@ $(function () {
 
 				$("#products").append(
 					'<div class="card">' +
+						'<p id="id" style="display: none;">' +
+						product.id_car +
+						"</p>" +
 						'<img src="' +
 						product.path_image +
 						'" class="card-img-top" alt="' +
 						product.model +
 						'">' +
 						'<div class="card-body">' +
-						'<h5 class="card-title">' +
+						'<h5 id="name" class="card-title">' +
 						product.brand +
 						" " +
 						product.model +
@@ -28,7 +31,7 @@ $(function () {
 						'<p class="card-text">' +
 						product.description +
 						"</p>" +
-						'<p class="card-text">' +
+						'<p id="price" class="card-text">' +
 						product.price +
 						"</p>" +
 						'<a href="../product/product.php?id=' +
@@ -42,5 +45,58 @@ $(function () {
 		error: function () {
 			console.log("error");
 		},
+	});
+
+	$(".tri select").change(function () {
+		var value = $(this).val();
+		var products = $("#products .card");
+		if (value == "price_low_high") {
+			products.sort(function (a, b) {
+				var priceA = parseFloat($(a).find("#price").text());
+				var priceB = parseFloat($(b).find("#price").text());
+				return priceA - priceB;
+			});
+			$("#products").html(products);
+		} else if (value == "price_high_low") {
+			products.sort(function (a, b) {
+				var priceA = parseFloat($(a).find("#price").text());
+				var priceB = parseFloat($(b).find("#price").text());
+				return priceB - priceA;
+			});
+			$("#products").html(products);
+		} else if (value == "brand_a_z") {
+			products.sort(function (a, b) {
+				var nameA = $(a).find("#name").text().toLowerCase();
+				var nameB = $(b).find("#name").text().toLowerCase();
+				if (nameA < nameB) {
+					return -1;
+				}
+				if (nameA > nameB) {
+					return 1;
+				}
+				return 0;
+			});
+			$("#products").html(products);
+		} else if (value == "brand_z_a") {
+			products.sort(function (a, b) {
+				var nameA = $(a).find("#name").text().toLowerCase();
+				var nameB = $(b).find("#name").text().toLowerCase();
+				if (nameA < nameB) {
+					return 1;
+				}
+				if (nameA > nameB) {
+					return -1;
+				}
+				return 0;
+			});
+			$("#products").html(products);
+		} else {
+			products.sort(function (a, b) {
+				var idA = $(a).find("#id").text();
+				var idB = $(b).find("#id").text();
+				return idA - idB;
+			});
+			$("#products").html(products);
+		}
 	});
 });

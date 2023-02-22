@@ -2,10 +2,32 @@ section {
 	display: flex;
 	flex-flow: wrap;
 	justify-content: space-around;
+}
+
+#articles {
 	min-height: 80vh;
 }
 
 .card {
 	width: 18rem;
 	margin: 1rem;
+}
+
+/* css for search bar */
+.search,
+.tri,
+.categories {
+	display: flex;
+	justify-content: center;
+	margin: 1rem;
+}
+
+.search input,
+.tri select,
+.categories select {
+	width: 20rem;
+	height: 2.5rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 0 0.5rem;
 }
