@@ -11,27 +11,27 @@ include_once('../../assets/includes/header.php');
 		<div class="forms">
 			<div class="inputs">
 				<span>Prenom</span> 
-				<input type="text" id="first_name" name="first_name" readonly value="John" />
+				<input type="text" id="first_name" name="first_name" readonly value="<?=$_SESSION['first_name']?>" />
 			</div>
 			<div class="inputs">
 				<span>Nom</span> 
-				<input type="text" id="last_name" name="last_name" readonly value="Doe" />
+				<input type="text" id="last_name" name="last_name" readonly value="<?=$_SESSION['last_name']?>" />
 			</div>
 			<div class="inputs">
 				<span>Email</span>
-				<input type="text" id="email" name="email" readonly value="john.doe@gmail.com" />
+				<input type="text" id="email" name="email" readonly value="<?=$_SESSION['login']?>" />
 			</div>
 			<div class="inputs">
 				<span>Rue</span>
-				<input type="text" id="adress" name="adress" readonly value="Rue de Liege" />
+				<input type="text" id="adress" name="adress" readonly value="<?=$_SESSION['adress']?>" />
 			</div>
 			<div class="inputs">
 				<span>Code postal</span>
-				<input type="text" id="zipcode" name="zipcode" readonly value="4000" />
+				<input type="text" id="zipcode" name="zipcode" readonly value="<?=$_SESSION['zipcode']?>" />
 			</div>
 			<div class="inputs">
 				<span>Ville</span>
-				<input type="text" id="city" name="city" readonly value="Liege" />
+				<input type="text" id="city" name="city" readonly value="<?=$_SESSION['city']?>" />
 			</div>
 		</div>
 	</div>

@@ -16,6 +16,19 @@ header {
 	align-items: center;
 }
 
+#formRegister {
+	display: none;
+}
+
+#register_div a {
+	color: #96918b;
+	text-decoration: none;
+}
+
+#register_div a:hover {
+	color: #96918b;
+}
+
 .nav-link {
 	color: white;
 	text-decoration: none;

@@ -55,4 +55,19 @@ class user_manager {
 		));
 		return true;
 	}
+
+	public function create_user($username, $password, $first_name, $last_name, $adress, $zipcode, $city) {
+		$sql = "INSERT INTO users (login, password, first_name, last_name, adress, zipcode, city) VALUES (:username, :password, :first_name, :last_name, :adress, :zipcode, :city)";
+		$req = $this->db->prepare($sql);
+		$req->execute(array(
+			'username' => $username,
+			'password' => $password,
+			'first_name' => $first_name,
+			'last_name' => $last_name,
+			'adress' => $adress,
+			'zipcode' => $zipcode,
+			'city' => $city
+		));
+		return true;
+	}
 }
