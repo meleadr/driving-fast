@@ -10,7 +10,7 @@ include_once('../../assets/includes/header.php');
 		<p class="lead">Contactez-nous via ce formulaire</p>
 	</div>
 	<div class="d-flex align-items-center justify-content-center">
-		<div id="form" class="bg-white col-md-4">
+		<form id="form" class="bg-white col-md-4" method="POST" action="https://www.w3schools.com/action_page.php" target="_blank">
 			<div class="p-4 rounded shadow-md">
 				<div>
 					<label for="name" class="form-label">Votre nom</label>
@@ -35,7 +35,7 @@ include_once('../../assets/includes/header.php');
 					</button>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </div>
 <?php

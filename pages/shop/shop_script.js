@@ -27,7 +27,7 @@ $(function () {
 						" " +
 						product.model +
 						"</h5>" +
-						'<p class="card-text">' +
+						'<p id="desc" class="card-text">' +
 						product.description +
 						"</p>" +
 						'<p id="category" class="card-text">' +

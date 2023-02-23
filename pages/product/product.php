@@ -9,15 +9,7 @@ include_once('../../assets/includes/header.php');
 			<div class="row g-0">
 				<div class="col-md-6 border-end">
 					<div class="d-flex flex-column justify-content-center">
-						<div class="main_image">	<img src="" id="main_product_image" width="350">	</div>
-						<div class="thumbnail_images">
-							<ul id="thumbnail">
-								<li><img onclick="changeImage(this)" src="https://i.imgur.com/TAzli1U.jpg" width="70"></li>
-								<li><img onclick="changeImage(this)" src="https://i.imgur.com/w6kEctd.jpg" width="70"></li>
-								<li><img onclick="changeImage(this)" src="https://i.imgur.com/L7hFD8X.jpg" width="70"></li>
-								<li><img onclick="changeImage(this)" src="https://i.imgur.com/6ZufmNS.jpg" width="70"></li>
-							</ul>
-						</div>
+						<div class="main_image">	<img src="" id="main_product_image" width="400">	</div>
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -55,6 +47,28 @@ include_once('../../assets/includes/header.php');
 						<div class="buttons d-flex flex-row mt-5 gap-3">	<button class="btn btn-primary" id="add_to_cart">Ajouter au panier</button></div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="popup">
+		<div class="popup-content">
+			<div class="popup-header">
+				<h3>Produit ajouté au panier</h3>
+				<div class="image">
+					<img src="" id="popup_image" width="200">
+				</div>
+			</div>
+			<div class="popup-body">
+				<div class="flex-row align-items-center">
+					<div class="content">
+						<h3 id="popup_name"></h3>
+						<h3 id="popup_price"></h3>
+					</div>
+				</div>
+			</div>
+			<div class="popup-footer">
+				<a href="../cart/cart.php" class="btn btn-primary">Voir le panier</a>
+				<button class="btn btn-primary" id="continue_shopping">Continuer mes achats</button>
 			</div>
 		</div>
 	</div>
