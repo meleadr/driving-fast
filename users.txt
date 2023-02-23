@@ -1,0 +1,13 @@
+Voici une liste d'utilisateurs :
+
+Login : adriano@newave.be => Mot de passe : adri
+
+Login : john_doe@gmail.com => Mot de passe : john
+
+Login : jane_doe@gmail.com => Mot de passe : jane
+
+Login : bob_smith@gmail.com => Mot de passe : bob
+
+Login : alice_johnson@gmail.com => Mot de passe : alice
+
+N'hésitez pas à vous inscrire pour tester l'application.

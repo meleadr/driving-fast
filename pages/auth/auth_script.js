@@ -18,6 +18,10 @@ $(function () {
 
 	$("#formConnect").submit(function (e) {
 		e.preventDefault();
+		// using crypto-js to hash the password
+		$("#password").val(
+			CryptoJS.SHA256($("#password").val()).toString(CryptoJS.enc.Hex)
+		);
 		$.ajax({
 			type: "POST",
 			url: "pages/auth/login.php",
