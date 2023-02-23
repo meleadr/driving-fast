@@ -137,4 +137,22 @@ $(function () {
 			$("#products").html(products);
 		}
 	});
+
+	$("#search").keypress(function (e) {
+		if (e.which == 13) {
+			$("#submit-search").click();
+		}
+	});
+
+	$("#submit-search").click(function () {
+		var search = $("#search").val();
+		var products = $("#products .card");
+		products.hide();
+		products.each(function () {
+			var name = $(this).find("#name").text().toLowerCase();
+			if (name.includes(search.toLowerCase())) {
+				$(this).show();
+			}
+		});
+	});
 });

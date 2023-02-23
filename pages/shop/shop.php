@@ -27,8 +27,8 @@ include_once('../../assets/includes/header.php');
 		</div>
 		<div class="col-md-4">
 			<div class="search">
-				<input type="text" name="search" placeholder="Rechercher">
-				<button class="btn btn-primary" type="submit" name="submit-search"><i class="bi bi-search"></i></button>
+				<input id="search" type="text" name="search" placeholder="Rechercher">
+				<button id="submit-search" class="btn btn-primary" type="submit" name="submit-search"><i class="bi bi-search"></i></button>
 			</div>
 		</div>
 	</div>
