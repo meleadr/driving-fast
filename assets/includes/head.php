@@ -20,7 +20,7 @@ if(!isset($_SESSION['id_user']) && $mvc != 'auth') {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- LINK FAVICON -->
-	<link rel="icon" href="<?=($mvc == 'auth') ? 'favicon.ico' : '../../favicon.ico';?>">
+	<link rel="icon" href="<?=($mvc == 'auth') ? 'favicon.ico' : 'assets/img/favicon.ico';?>">
 
 	<!-- LINK CSS AND JS FOR BOOTSTRAP -->
 	<link rel="stylesheet" href="<?=($mvc == 'auth') ? 'assets/css/bootstrap.css' : '../../assets/css/bootstrap.css';?>">
