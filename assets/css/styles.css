@@ -10,7 +10,6 @@ body {
 }
 
 header {
-	min-height: 10vh;
 	background-color: #96918b;
 	display: flex;
 	align-items: center;
@@ -34,14 +33,14 @@ header {
 	text-decoration: none;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.navbar-brand:hover {
 	color: #96918b;
 	background-color: white;
 	border-radius: 5px;
 }
 
 footer {
-	min-height: 10vh;
 	background-color: #96918b;
 	color: white;
 }
