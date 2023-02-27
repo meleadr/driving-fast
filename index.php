@@ -36,7 +36,7 @@ include_once('assets/includes/head.php'); ?>
 				<label for="validationServerUsername" class="form-label">Login</label>
 				<div class="input-group has-validation">
 				<span class="input-group-text" id="inputGroupPrepend3">@</span>
-				<input type="email" class="form-control is-invalid" id="login" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+				<input type="email" class="form-control is-invalid" id="login_register" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
 				<div id="validationServerUsernameFeedback" class="invalid-feedback">
 					Entrer votre login.
 				</div>
@@ -96,8 +96,13 @@ include_once('assets/includes/head.php'); ?>
 				</div>
 			</div>
 		</div>
-		<div class="col-12 text-center" id="button_div">
-			<button class="btn btn-primary" type="submit" id="registerBtn">S'inscrire</button>
+		<div class="row m-5">
+			<div class="col-2" id="back_div">
+				<button class="btn" id="backToLogin">Retour</button>
+			</div>
+			<div class="col-10 text-center" id="button_div">
+				<button class="btn btn-primary" type="submit" id="registerBtn">S'inscrire</button>
+			</div>
 		</div>
 		<div class="col-12 text-center" id="error_register">
 		</div>

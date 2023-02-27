@@ -42,6 +42,11 @@ $(function () {
 		$("#formRegister").show();
 	});
 
+	$("#backToLogin").click(function () {
+		$("#formConnect").show();
+		$("#formRegister").hide();
+	});
+
 	$("#formRegister").submit(function (e) {
 		e.preventDefault();
 		if ($("#password_register").val() != $("#password_confirm").val()) {
@@ -60,8 +65,8 @@ $(function () {
 			url: "pages/auth/login.php",
 			data: {
 				action: "register",
-				username: $("#login").val(),
-				password: $("#password").val(),
+				username: $("#login_register").val(),
+				password: $("#password_register").val(),
 				first_name: $("#first_name").val(),
 				last_name: $("#last_name").val(),
 				adress: $("#adress").val(),
