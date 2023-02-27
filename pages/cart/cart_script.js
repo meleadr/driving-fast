@@ -15,8 +15,9 @@ $(function () {
 				},
 				success: function (data) {
 					data = JSON.parse(data);
-					data.price = data.price * product.quantity;
-					data.price = formatPrice(data.price);
+					totalPrice = data.price * product.quantity;
+					totalPrice = formatPrice(totalPrice);
+					formatedPrice = formatPrice(data.price);
 					$("#fromHere").after(
 						`
 					<div
@@ -40,6 +41,12 @@ $(function () {
 						<h6 class="text-black mb-0">` +
 							data.model +
 							`</h6>
+						<p id="articlePrice" class="text-muted">` +
+							formatedPrice +
+							`</p>
+							<p id="nonFormatPrice" hidden>` +
+							data.price +
+							`</p>
 					</div>
 					<div class="col-md-3 col-lg-3 col-xl-2 d-flex">
 						<button class="btn btn-link px-2">
@@ -64,8 +71,8 @@ $(function () {
 						</button>
 					</div>
 					<div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-						<h6 class="mb-0">` +
-							data.price +
+						<h6 id="totalPriceByArticle" class="mb-0">` +
+							totalPrice +
 							`</h6>
 					</div>
 					<div class="col-md-1 col-lg-1 col-xl-1 text-end">
@@ -92,7 +99,10 @@ $(function () {
 		setCartQuantityProduct(
 			id_user,
 			quantity.parent().parent().parent().find("input[name=id_product]").val(),
-			quantity.val()
+			1
+		);
+		$("#totalPriceByArticle").text(
+			formatPrice($("#nonFormatPrice").text() * quantity.val())
 		);
 		setNbrAticle();
 	});
@@ -110,7 +120,10 @@ $(function () {
 					.parent()
 					.find("input[name=id_product]")
 					.val(),
-				quantity.val()
+				-1
+			);
+			$("#totalPriceByArticle").text(
+				formatPrice($("#nonFormatPrice").text() * quantity.val())
 			);
 		}
 		if (parseInt(quantity.val()) == 0) {
