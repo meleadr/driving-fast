@@ -3,7 +3,7 @@ $mvc = 'cart';
 include_once('../../assets/includes/head.php');
 include_once('../../assets/includes/header.php');
 ?>
-<section class="h-100 h-custom">
+<section>
 	<div class="container py-5 h-100">
 		<div class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col-12">

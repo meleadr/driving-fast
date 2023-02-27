@@ -26,7 +26,7 @@ include_once('../../assets/includes/header.php');
 				</div>
 				<div class="mt-3 mb-3">
 					<label for="message" class="form-label">Message</label>
-					<textarea name="message" cols="20" rows="6" class="form-control"
+					<textarea name="message" cols="20" rows="3" class="form-control"
 						placeholder="message"></textarea>
 				</div>
 				<div class="text-center">

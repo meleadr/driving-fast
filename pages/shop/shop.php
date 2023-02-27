@@ -7,14 +7,14 @@ include_once('../../assets/includes/header.php');
 <section>
 <div class="container">
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="categories">
 				<select name="select" id="select">
 					<option value="all">Catégories</option>
 				</select>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-2">
 			<div class="tri">
 				<select name="select" id="select">
 					<option value="id">Trier par</option>
@@ -25,7 +25,17 @@ include_once('../../assets/includes/header.php');
 				</select>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-2">
+			<div class="min">
+				<input type="number" name="min" id="min" placeholder="Min">
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="max">
+				<input type="number" name="max" id="max" placeholder="Max">
+			</div>
+		</div>
+		<div class="col-md-3">
 			<div class="search">
 				<input id="search" type="text" name="search" placeholder="Rechercher">
 				<button id="submit-search" class="btn btn-primary" type="submit" name="submit-search"><i class="bi bi-search"></i></button>

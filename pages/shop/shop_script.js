@@ -8,7 +8,7 @@ $(function () {
 		success: function (data) {
 			var products = JSON.parse(data);
 			$.each(products, function (index, product) {
-				product.price = formatPrice(product.price);
+				price = formatPrice(product.price);
 				product.description = product.description.substring(0, 100) + "...";
 
 				$("#products").append(
@@ -34,6 +34,9 @@ $(function () {
 						product.name +
 						"</p>" +
 						'<p id="price" class="card-text">' +
+						price +
+						"</p>" +
+						"<p id='nonFormatPrice' hidden>" +
 						product.price +
 						"</p>" +
 						'<a href="../product/product.php?id=' +
@@ -68,21 +71,8 @@ $(function () {
 		},
 	});
 
-	// Filter by category
 	$(".categories select").change(function () {
-		var value = $(this).val();
-		var products = $("#products .card");
-		if (value == "all") {
-			products.show();
-		} else {
-			products.hide();
-			products.each(function () {
-				var category = $(this).find("#category").text();
-				if (category == value) {
-					$(this).show();
-				}
-			});
-		}
+		filtre();
 	});
 
 	$(".tri select").change(function () {
@@ -90,15 +80,15 @@ $(function () {
 		var products = $("#products .card");
 		if (value == "price_low_high") {
 			products.sort(function (a, b) {
-				var priceA = parseFloat($(a).find("#price").text());
-				var priceB = parseFloat($(b).find("#price").text());
+				var priceA = $(a).find("#nonFormatPrice").text();
+				var priceB = $(b).find("#nonFormatPrice").text();
 				return priceA - priceB;
 			});
 			$("#products").html(products);
 		} else if (value == "price_high_low") {
 			products.sort(function (a, b) {
-				var priceA = parseFloat($(a).find("#price").text());
-				var priceB = parseFloat($(b).find("#price").text());
+				var priceA = $(a).find("#nonFormatPrice").text();
+				var priceB = $(b).find("#nonFormatPrice").text();
 				return priceB - priceA;
 			});
 			$("#products").html(products);
@@ -145,14 +135,40 @@ $(function () {
 	});
 
 	$("#submit-search").click(function () {
+		filtre();
+	});
+
+	$("#min, #max").change(function () {
+		filtre();
+	});
+
+	function filtre() {
+		var min = parseFloat($("#min").val());
+		var max = parseFloat($("#max").val());
 		var search = $("#search").val();
+		var value = $(".categories select").val();
+
+		if (isNaN(min)) {
+			min = 0;
+		}
+		if (isNaN(max)) {
+			max = 100000000;
+		}
+
 		var products = $("#products .card");
 		products.hide();
 		products.each(function () {
+			var price = $(this).find("#nonFormatPrice").text();
 			var name = $(this).find("#name").text().toLowerCase();
-			if (name.includes(search.toLowerCase())) {
+			var category = $(this).find("#category").text();
+			if (
+				price >= min &&
+				price <= max &&
+				name.includes(search.toLowerCase()) &&
+				(category == value) | (value == "all")
+			) {
 				$(this).show();
 			}
 		});
-	});
+	}
 });
