@@ -1,6 +1,6 @@
 # Projet de cours : driving-fast
 
-Projet e-commerce de vente de véhicules de luxe.
+Projet e-commerce de vente de véhicules.
 
 ## Connexion
 
