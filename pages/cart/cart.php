@@ -52,7 +52,12 @@ include_once('../../assets/includes/header.php');
 										<h5 id="totalPrice"></h5>
 									</div>
 
+									<div class="d-flex justify-content-between mb-5">
+										<h5 id="message"></h5>
+									</div>
+
 									<button
+										id = "validateCart"
 										type="button"
 										class="btn btn-dark btn-block btn-lg"
 										data-mdb-ripple-color="dark"

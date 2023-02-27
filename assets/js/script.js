@@ -137,3 +137,9 @@ function formatPrice(price) {
 	price_formated += " €";
 	return price_formated;
 }
+
+function removeAllItemsOfCart(id_user) {
+	var cart = [];
+	document.cookie = "cart_" + id_user + "=" + JSON.stringify(cart) + ";path=/";
+	setCartQuantity(id_user);
+}

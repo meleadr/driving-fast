@@ -70,18 +70,17 @@ $(function () {
 				</div>
 			</div>
 
-			<hr class="my-4" />`
+			<hr id="hr_` +
+						product.id +
+						`" class="my-4" />`
 				);
+				setNbrAticle();
 			},
 			error: function () {
 				console.log("error");
 			},
 		});
 	});
-
-	$("#totalPriceItems").text(formatPrice(getTotalPriceOfCart(id_user)));
-	$("#totalPrice").text(formatPrice(getTotalPriceOfCart(id_user) + 500));
-	$("#nbItems").text(nbrTotal + " articles");
 
 	$(document).on("click", ".bi-plus", function () {
 		var quantity = $(this).parent().siblings("input[name=quantity]");
@@ -114,6 +113,7 @@ $(function () {
 		if (parseInt(quantity.val()) == 0) {
 			var item = $(this).parent().parent().parent();
 			item.remove();
+			$("#hr_" + item.find("input[name=id_product]").val()).remove();
 			var id_product = item.find("input[name=id_product]").val();
 			removeItemOfCart(id_user, id_product);
 		}
@@ -123,12 +123,40 @@ $(function () {
 	$(document).on("click", ".bi-trash", function () {
 		var item = $(this).parent().parent().parent();
 		item.remove();
+		$("#hr_" + item.find("input[name=id_product]").val()).remove();
 		var id_product = item.find("input[name=id_product]").val();
 		removeItemOfCart(id_user, id_product);
 		setNbrAticle();
 	});
 
+	$("#validateCart").click(function () {
+		var cart = getCartOfUser(id_user);
+		$.ajax({
+			type: "POST",
+			url: "cart_controller.php",
+			data: {
+				action: "createOrder",
+				id_user: id_user,
+				cart: cart,
+			},
+			success: function (data) {
+				if (data == "success") {
+					removeAllItemsOfCart(id_user);
+					//
+					$("#message").text("Votre commande a été validée");
+				} else {
+					$("#message").text(data);
+				}
+			},
+			error: function () {
+				console.log("error");
+			},
+		});
+	});
+
 	function setNbrAticle() {
+		$("#totalPriceItems").text(formatPrice(getTotalPriceOfCart(id_user)));
+		$("#totalPrice").text(formatPrice(getTotalPriceOfCart(id_user) + 500));
 		$("#nbItems").text(nbrTotal + " articles");
 	}
 });
