@@ -13,6 +13,12 @@ section {
 	margin: 1rem;
 }
 
+img {
+	max-height: 13rem;
+	/* cover */
+	object-fit: cover;
+}
+
 #desc {
 	min-height: 2rem;
 }
