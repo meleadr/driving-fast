@@ -1,5 +1,9 @@
 Importez la DB dans votre PhpMyAdmin
 
+Pour importer la DB, vous devez vous rendre dans PhpMyAdmin et créer une nouvelle DB. 
+La DB doit s'appeler "driving_fast".
+Une fois la DB créée, vous pouvez importer le fichier "db.sql" présent a la racine du projet.
+
 Une fois la DB importée, vous pouvez vous connecter à l'application avec les identifiants suivants :
 
 Login : adriano@newave.be => Mot de passe : adri
