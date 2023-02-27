@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 27, 2023 at 11:14 AM
+-- Generation Time: Feb 27, 2023 at 03:38 PM
 -- Server version: 5.7.39
 -- PHP Version: 7.4.33
 
@@ -46,7 +46,7 @@ INSERT INTO `cars` (`id_car`, `brand`, `model`, `description`, `price`, `path_im
 (1, 'Ferrari', 'F40', 'La Ferrari F40 est une supercar GT et de compétition, du constructeur automobile italien Ferrari. Produite entre 1987 et 1992, pour fêter les quarante ans de la marque, elle succède à la Ferrari 288 GTO. Ultime création du vivant du Commendatore Enzo Ferrari (1898-1988), elle est au moment de sa sortie, la voiture la plus rapide, la plus puissante et la plus chère de l\'histoire de l\'automobile (liste des voitures de série les plus rapides au monde).', 980000, '../../assets/img/product/ferrari-f40.jpg', 1, 1),
 (2, 'Mazda', 'Mx5 NA', 'La MX-5 repose sur 5 principes fondamentaux, définis par l\'actuel chef de programme Nobuhiro Yamamoto : légèreté, propulsion, répartition des masses 50/50, faible inertie en virage, prix abordable1.', 9800, '../../assets/img/product/mx5-na.jpg', 2, 2),
 (3, 'Ferrari', '488 GTB', 'La Ferrari 488 GTB est un coupé GT produit par le constructeur automobile italien Ferrari, successeur de la Ferrari 458.', 250000, '../../assets/img/product/ferrari-488-gtb.jpg', 3, 2),
-(4, 'Lamborghini', 'Huracán', 'La Lamborghini Huracán est une voiture de sport produite par le constructeur automobile italien Lamborghini.', 270000, '../../assets/img/product/lamborghini-huracan.jpg', 1, 2),
+(4, 'Lamborghini', 'Huracán', 'La Lamborghini Huracán est une voiture de sport produite par le constructeur automobile italien Lamborghini.', 270000, '../../assets/img/product/lamborghini-huracan.jpg', 1, 1),
 (5, 'Aston Martin', 'Vantage', 'La Vantage est une voiture de sport produite par le constructeur britannique Aston Martin.', 180000, '../../assets/img/product/aston-martin-vantage.jpg', 2, 2),
 (6, 'Porsche', '911', 'La Porsche 911 est une voiture de sport produite par le constructeur allemand Porsche depuis 1963.', 200000, '../../assets/img/product/porsche-911.jpg', 2, 2),
 (7, 'McLaren', '570S', 'La McLaren 570S est une voiture de sport produite par le constructeur automobile britannique McLaren Automotive.', 260000, '../../assets/img/product/mclaren-570s.jpg', 1, 2),
@@ -97,6 +97,13 @@ CREATE TABLE `orders` (
   `date_order` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id_order`, `id_car`, `id_user`, `quantity`, `date_order`) VALUES
+(1, 4, 1, 1, '2023-02-27 15:34:11');
+
 -- --------------------------------------------------------
 
 --
@@ -146,7 +153,9 @@ ALTER TABLE `categories`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id_order`);
+  ADD PRIMARY KEY (`id_order`),
+  ADD KEY `fk_user` (`id_user`),
+  ADD KEY `fk_car` (`id_car`);
 
 --
 -- Indexes for table `users`
@@ -174,7 +183,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -191,6 +200,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `cars`
   ADD CONSTRAINT `fk_category` FOREIGN KEY (`category`) REFERENCES `categories` (`id_category`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `fk_car` FOREIGN KEY (`id_car`) REFERENCES `cars` (`id_car`),
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
