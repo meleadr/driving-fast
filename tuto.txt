@@ -1,4 +1,6 @@
-Voici une liste d'utilisateurs :
+Importez la DB dans votre PhpMyAdmin
+
+Une fois la DB importée, vous pouvez vous connecter à l'application avec les identifiants suivants :
 
 Login : adriano@newave.be => Mot de passe : adri
 
