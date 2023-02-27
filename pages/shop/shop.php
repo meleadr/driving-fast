@@ -7,7 +7,7 @@ include_once('../../assets/includes/header.php');
 <section>
 <div class="container">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="categories">
 				<select name="select" id="select">
 					<option value="all">Catégories</option>
@@ -27,15 +27,15 @@ include_once('../../assets/includes/header.php');
 		</div>
 		<div class="col-md-2">
 			<div class="min">
-				<input type="number" name="min" id="min" placeholder="Min">
+				<input type="number" name="min" id="min" placeholder="Min (€)">
 			</div>
 		</div>
 		<div class="col-md-2">
 			<div class="max">
-				<input type="number" name="max" id="max" placeholder="Max">
+				<input type="number" name="max" id="max" placeholder="Max (€)">
 			</div>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<div class="search">
 				<input id="search" type="text" name="search" placeholder="Rechercher">
 			</div>
