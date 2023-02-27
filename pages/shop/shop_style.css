@@ -15,7 +15,6 @@ section {
 
 img {
 	max-height: 13rem;
-	/* cover */
 	object-fit: cover;
 }
 

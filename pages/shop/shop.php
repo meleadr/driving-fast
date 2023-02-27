@@ -14,7 +14,7 @@ include_once('../../assets/includes/header.php');
 				</select>
 			</div>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<div class="tri">
 				<select name="select" id="select">
 					<option value="id">Trier par</option>
@@ -35,10 +35,9 @@ include_once('../../assets/includes/header.php');
 				<input type="number" name="max" id="max" placeholder="Max">
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="search">
 				<input id="search" type="text" name="search" placeholder="Rechercher">
-				<button id="submit-search" class="btn btn-primary" type="submit" name="submit-search"><i class="bi bi-search"></i></button>
 			</div>
 		</div>
 	</div>

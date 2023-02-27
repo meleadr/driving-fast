@@ -71,7 +71,7 @@ $(function () {
 		},
 	});
 
-	$(".categories select").change(function () {
+	$(".categories select, #min, #max").change(function () {
 		filtre();
 	});
 
@@ -128,17 +128,7 @@ $(function () {
 		}
 	});
 
-	$("#search").keypress(function (e) {
-		if (e.which == 13) {
-			$("#submit-search").click();
-		}
-	});
-
-	$("#submit-search").click(function () {
-		filtre();
-	});
-
-	$("#min, #max").change(function () {
+	$("#search").on("input", function () {
 		filtre();
 	});
 
