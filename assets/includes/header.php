@@ -1,6 +1,6 @@
 <header>
-	<nav class="navbar navbar-expand-lg">
-		<div class="container">
+	<nav class="navbar navbar-expand-lg w-100">
+		<div class="container text-center">
 			<a class="navbar-brand" href="../../assets/img/logo_bg.png" alt="Logo" width="100%" height="50"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
